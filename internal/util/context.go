@@ -2,6 +2,8 @@ package util
 
 import (
 	"fmt"
+	"strings"
+
 	"k8s.io/client-go/dynamic"
 	"k8s.io/client-go/kubernetes"
 	restclient "k8s.io/client-go/rest"
@@ -79,6 +81,8 @@ type Config struct {
 }
 
 func (c *Config) ContextName(cluster string, namespace string) string {
+	clusterParts := strings.Split(cluster, "/")
+	cluster = clusterParts[len(clusterParts)-1]
 	return fmt.Sprintf("%s/%s", namespace, cluster)
 }
 
