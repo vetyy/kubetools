@@ -3,5 +3,5 @@
 ## Install
 
 ```
-go get -v github.com/vetyy/kubetools/...
+go install -v github.com/vetyy/kubetools/...@main
 ```
